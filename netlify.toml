@@ -1,2 +1,2 @@
 [build]
-command = "yarn parcel build ./src/index.pug --dist-dir ./build"
+publish = "build"
