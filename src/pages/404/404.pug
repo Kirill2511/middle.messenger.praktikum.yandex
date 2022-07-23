@@ -1,0 +1,29 @@
+extends ../../main
+include ../../components/button/button
+
+
+block nav
+    nav.nav__wrapper
+        ul.nav__list
+            li.nav__item
+                a(href='../chat/chat.pug') Chat
+            li.nav__item
+                a(href='../profile/profile.pug') Profile
+            li.nav__item
+                a(href=`../login/login.pug`) Login
+            li.nav__item
+                a(href='../registration/registration.pug') Registration
+            li.nav__item
+                a(href='../500/500.pug') 500
+            li.nav__item_active
+                a(href='../404/404.pug') 404
+
+block content
+    section.error-page
+        div.error-page__content
+            h1.title 404
+            h3.sub-title Не туда попали
+            +Link('Назад к чатам')(href='../chat/chat.pug')
+
+append scripts
+    script(src="../500/500.js" type='module')

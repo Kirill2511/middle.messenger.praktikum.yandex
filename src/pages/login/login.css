@@ -1,0 +1,21 @@
+.login {
+  align-items: center;
+  background: #fff;
+  border-radius: .857rem;
+  box-shadow: 0 0 6px #00000024;
+  display: flex;
+  flex-direction: column;
+  margin: 3.571rem auto;
+  padding: 30px;
+  width: 340px; }
+
+.login__title {
+  margin: 0 0 2.857rem; }
+
+.login__button {
+  color: #3369f3;
+  font-size: .786rem;
+  font-weight: 500;
+  margin-top: 1rem; }
+
+/*# sourceMappingURL=login.css.map */

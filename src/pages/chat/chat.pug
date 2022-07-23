@@ -1,0 +1,74 @@
+extends ../../main
+
+mixin contact(name, message, time, avatar, counter, me)
+    li(class= me ? "contact contact_me" : "contact")
+        div.contact__avatar
+            img(src=avatar).contact__img
+        div.contact__content
+            div.contact__name=name
+            div.contact__message=message
+            div.contact__time=time
+            if counter
+                div.contact__counter=counter
+
+mixin message(message, time, me)
+    li(class= me ? "message message_me" : "message")
+        div.message__text=message
+        div(class= me ? "message__time message__time_me" : "message__time")=time
+
+mixin messgeImage(url, time)
+    li.message-image
+        img.message-image__img(src=url)
+        p.message-image__time=time
+
+block nav
+    nav.nav__wrapper
+        ul.nav__list
+            li.nav__item_active
+                a(href='../chat/chat.pug') Chat
+            li.nav__item
+                a(href='../profile/profile.pug') Profile
+            li.nav__item
+                a(href=`../login/login.pug`) Login
+            li.nav__item
+                a(href='../registration/registration.pug') Registration
+            li.nav__item
+                a(href='../500/500.pug') 500
+            li.nav__item
+                a(href='../404/404.pug') 404
+
+block content
+    div.chat
+        section.chat__contact
+            div.chat__contact-link
+                a(href='../profile/profile.pug').chat__contact-text Профиль
+                    img(src="~/src/images/arrow-right.svg").chat__contact-img
+            div.chat__search
+                input(placeholder='Поиск').chat__input
+            ul.chat__contact-list
+                +contact("Андрей", "Изображение", "10:49", "~/src/images/Ellipse.svg", "2")
+                +contact("Киноклуб", "Вы: стикер", "12:00", "~/src/images/Ellipse.svg")
+                +contact("Илья", "Друзья, у меня для вас особенный выпуск новостей!", "15:12", "~/src/images/Ellipse.svg", "4")
+                +contact("Вадим", "Вы: Круто!", "Пт", "~/src/images/Ellipse.svg", "", true)
+                +contact("тет-а-теты", "И Human Interface Guidelines и Material Design рекомендуют", "Ср", "~/src/images/Ellipse.svg")
+                +contact("1, 2, 3", "Миллионы россиян ежедневно проводят десятки часов свое", "Пн", "~/src/images/Ellipse.svg")
+        section.chat__messages
+            section.chat__header
+                div.chat__nicknames
+                    img(src="~/src/images/Ellipse.svg")
+                    p.chat__nicknames_text Вадим
+                button
+            ul.chat__message-list
+                +message("Привет! Смотри, тут всплыл интересный кусок лунной космической истории — НАСА в какой-то момент попросила Хассельблад адаптировать модель SWC для полетов на Луну. Сейчас мы все знаем что астронавты летали с моделью 500 EL — и к слову говоря, все тушки этих камер все еще находятся на поверхности Луны, так как астронавты с собой забрали только кассеты с пленкой.", "11:56")
+                +messgeImage("~/src/images/chat/1.png", "11:56")
+                +message("Круто!", "12:00", true)
+            form.chat__input-message
+                div.chat__list-input
+                    button(title='Прикрепить документ').chat__input_button
+                        img(src='~/src/images/paperclip.svg' alt='Прикрепить' title='Прикрепить документ')
+                    input(placeholder='Сообщение' name='message').chat__input.chat__input_text-left
+                    button(title='Отправить сообщение').chat__input_button.chat__input_push
+                        img(src="../../images/back.svg" alt='Отправить' title='Отправить сообщение')
+
+append scripts
+    script(src="./chat.js" type='module')

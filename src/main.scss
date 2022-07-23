@@ -1,0 +1,43 @@
+@import './components/button/button.css';
+@import './style/index';
+@import './font/Inter/inter.css';
+
+body {
+  font-family: Inter, Roboto, Arial, serif;
+  font-size: 14px;
+  overflow: hidden;
+}
+
+* {
+  box-sizing: border-box;
+  font-weight: normal;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:visited {
+    color: inherit;
+  }
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  margin: 0;
+  outline: none;
+  padding: 0;
+}
