@@ -142,3 +142,5 @@ dist
 *.sass.map
 *.scss.map
 
+src/*.html
+src/*.css

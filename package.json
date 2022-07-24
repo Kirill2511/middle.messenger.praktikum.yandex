@@ -11,16 +11,14 @@
   },
   "packageManager": "yarn@3.2.1",
   "devDependencies": {
-    "@parcel/transformer-pug": "^2.6.2",
-    "@parcel/transformer-sass": "^2.6.2",
+    "@parcel/transformer-pug": "2.6.2",
+    "@parcel/transformer-sass": "2.6.2",
     "eslint": "^7.32.0 || ^8.2.0",
     "eslint-config-airbnb-base": "latest",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-prettier": "^4.2.1",
     "parcel": "^2.6.2",
-    "parcel-transformer-elm-svg-modules": "^1.0.6",
-    "parcel-transformer-fonts": "^1.1.3",
     "prettier": "^2.7.1",
     "pug": "^3.0.2",
     "sass": "^1.53.0"
