@@ -1,0 +1,31 @@
+extends ../../main.pug
+include ../../components/button/button.pug
+include ../../components/header/header
+
+block nav
+    +header("login")
+
+
+block content
+    section.login
+        h1.login__title='Вход'
+        form.form
+            label.form__label(for='login') Логин
+                input.form__input(
+                    type='text'
+                    name='login'
+                    id='login'
+                    value='ivanivanov'
+                )
+            label.form__label(for='password') Пароль
+                input.form__input(
+                    type='password'
+                    name='password'
+                    id='password'
+                    value='123456789'
+                )
+            button.login__button Авторизоваться
+        +Link('Нет аккаунта?')(href="~/src/pages/registration/registration.pug")
+
+append scripts
+    script(src="./login.js" type='module')
