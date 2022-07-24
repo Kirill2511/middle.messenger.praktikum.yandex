@@ -8,6 +8,8 @@ out
 gen
 /build
 
+*.css
+*.scss.map
 .pnp.*
 .yarn/*
 !.yarn/patches

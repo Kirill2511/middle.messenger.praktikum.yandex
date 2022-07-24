@@ -1,6 +1,8 @@
+@import '../../style/color';
+
 .registration {
   align-items: center;
-  background: #fff;
+  background: $white;
   border-radius: .857rem;
   box-shadow: 0 0 6px #00000024;
   display: flex;
@@ -8,13 +10,6 @@
   margin: 3.571rem auto;
   padding: 30px;
   width: 340px;
-
-  button {
-    color: #3369f3;
-    font-size: .786rem;
-    font-weight: 500;
-    margin-top: 1rem;
-  }
 }
 
 .registration__title {
@@ -22,5 +17,8 @@
 }
 
 .registration__button {
-
+  color: $blue;
+  font-size: .786rem;
+  font-weight: 500;
+  margin-top: 1rem;
 }

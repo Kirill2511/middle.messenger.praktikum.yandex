@@ -1,3 +1,5 @@
+@import '../../style/color';
+
 .chat {
   width: 100%;
   display: grid;
@@ -5,15 +7,15 @@
 }
 
 .chat__contact {
-  background-color: #FBFBFB;
-  border-right: 1px solid #EAEAEA;
+  background-color: $gray-100;
+  border-right: 1px solid $gray-200;
   display: flex;
   flex-direction: column;
   height: 100vh;
 }
 
 .chat__contact-link {
-  color: #999999;
+  color: $gray;
   display: flex;
   margin: 20px 0;
   justify-content: flex-end;
@@ -40,7 +42,7 @@
 }
 
 .chat__input {
-  background-color: #EFEFEF;
+  background-color: $gray-150;
   border: 0;
   border-radius: 5px;
   height: 32px;
@@ -60,7 +62,7 @@
 .chat__header {
   display: flex;
   padding: 10px 0;
-  border-bottom: 1px solid #EAEAEA;
+  border-bottom: 1px solid $gray-100;
 }
 
 .chat__nicknames {
