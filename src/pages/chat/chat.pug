@@ -20,7 +20,7 @@ mixin message(message, time, me)
 
 mixin messgeImage(url, time)
     li.message-image
-        img.message-image__img(src=url)
+        img.message-image__img(src=url, alt='изображение')
         p.message-image__time=time
 
 block nav
@@ -31,7 +31,7 @@ block content
         section.chat__contact
             div.chat__contact-link
                 a(href='../profile/profile.pug').chat__contact-text Профиль
-                    img(src="~/src/images/arrow-right.svg" alt='стрелка').chat__contact-img
+                    img(src="~/src/images/arrow-right.svg" alt='профиль').chat__contact-img
             div.chat__search
                 input(placeholder='Поиск').chat__input
             ul.chat__contact-list
