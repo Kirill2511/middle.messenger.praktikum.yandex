@@ -1,25 +1,13 @@
 extends ../../main
+include ../../components/header/header
 
 block nav
-    nav.nav__wrapper
-        ul.nav__list
-            li.nav__item
-                a(href='../chat/chat.pug') Chat
-            li.nav__item_active
-                a(href='../profile/profile.pug') Profile
-            li.nav__item
-                a(href=`../login/login.pug`) Login
-            li.nav__item
-                a(href='../registration/registration.pug') Registration
-            li.nav__item
-                a(href='../500/500.pug') 500
-            li.nav__item
-                a(href='../404/404.pug') 404
+    +header("profile")
 
 block content
     section.profile-page
         a(href='../chat/chat.pug' title='Назад на страницу чата').profile-back
-            img(src='../../images/back.svg').profile__img
+            img(src='../../images/back.svg', alt='вернуться назад').profile__img
         div.profile-content
             div.profile__avatar
                 span(title='Аватар').profile__eclipse
