@@ -4,7 +4,7 @@ import { IComponentProps } from '../../components/Types';
 import Button from '../../components/button/button';
 import loginTemplate from './login.template';
 import Input from '../../components/input/input';
-import { checkEmail } from '../../utils/validation';
+import { checkEmail, checkPassword } from '../../utils/validation';
 import './login.scss';
 
 export default class Login extends Block {
@@ -46,6 +46,14 @@ export default class Login extends Block {
       placeholder: 'Пароль',
       name: 'password',
       type: 'password',
+      events: {
+        blur: (e) => {
+          checkPassword(e.currentTarget.value, passwordField);
+        },
+        focus: (e) => {
+          checkPassword(e.currentTarget.value, passwordField);
+        },
+      },
     });
 
     super({

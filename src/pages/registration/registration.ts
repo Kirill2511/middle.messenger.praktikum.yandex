@@ -3,7 +3,7 @@ import Block from '../../components/block/block';
 import Input from '../../components/input/input';
 import { IComponentProps } from '../../components/Types';
 import Button from '../../components/button/button';
-import { checkEmail, checkPassword } from '../../utils/validation';
+import { checkEmail, checkFirstAndSecondName, checkPassword, checkPhone } from '../../utils/validation';
 import registrationTemplate from './registration.template';
 import './registration.scss';
 
@@ -30,16 +30,40 @@ export default class Registration extends Block {
     const firstNameField = new Input({
       placeholder: 'Имя',
       name: 'first_name',
+      events: {
+        blur: (e: { currentTarget: { value: string } }) => {
+          checkFirstAndSecondName(e.currentTarget.value, firstNameField);
+        },
+        focus: (e) => {
+          checkFirstAndSecondName(e.currentTarget.value, firstNameField);
+        },
+      },
     });
 
     const lastNameField = new Input({
       placeholder: 'Фамилия',
       name: 'last_name',
+      events: {
+        blur: (e: { currentTarget: { value: string } }) => {
+          checkFirstAndSecondName(e.currentTarget.value, lastNameField);
+        },
+        focus: (e) => {
+          checkFirstAndSecondName(e.currentTarget.value, lastNameField);
+        },
+      },
     });
 
     const phoneField = new Input({
       placeholder: 'Телефон',
       name: 'phone',
+      events: {
+        blur: (e: { currentTarget: { value: string } }) => {
+          checkPhone(e.currentTarget.value, phoneField);
+        },
+        focus: (e) => {
+          checkPhone(e.currentTarget.value, phoneField);
+        },
+      },
     });
 
     const emailField = new Input({
@@ -50,8 +74,8 @@ export default class Registration extends Block {
         blur: (e: { currentTarget: { value: string } }) => {
           checkEmail(e.currentTarget.value, emailField);
         },
-        focus: () => {
-          console.log('email');
+        focus: (e) => {
+          checkEmail(e.currentTarget.value, emailField);
         },
       },
     });
@@ -64,8 +88,8 @@ export default class Registration extends Block {
         blur: (e) => {
           checkPassword(e.currentTarget.value, passwordField);
         },
-        focus: () => {
-          console.log('password');
+        focus: (e) => {
+          checkPassword(e.currentTarget.value, passwordField);
         },
       },
     });
@@ -73,6 +97,14 @@ export default class Registration extends Block {
     const chatNameField = new Input({
       placeholder: 'Имя в чате',
       name: 'chat_name',
+      events: {
+        blur: (e) => {
+          checkFirstAndSecondName(e.currentTarget.value, chatNameField);
+        },
+        focus: (e) => {
+          checkFirstAndSecondName(e.currentTarget.value, chatNameField);
+        },
+      },
     });
 
     super({
