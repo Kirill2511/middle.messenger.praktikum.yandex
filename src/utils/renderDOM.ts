@@ -6,7 +6,7 @@ function removeAllChildNodes(parent: Element) {
   }
 }
 
-export function render(query: string, block: Block) {
+export default function render(query: string, block: Block) {
   const root = document.querySelector(query);
   if (root) {
     removeAllChildNodes(root);

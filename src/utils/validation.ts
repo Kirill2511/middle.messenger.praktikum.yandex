@@ -28,7 +28,7 @@ export const checkPassword = (val: string, component: Block): boolean => {
   }
 };
 
-export const isPassword = (value) => {
+export const isPassword = (value: string) => {
   return /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(value);
 };
 
