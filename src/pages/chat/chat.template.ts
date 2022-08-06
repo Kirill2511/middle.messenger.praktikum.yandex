@@ -21,7 +21,7 @@ div.chat
             div.chat__list-input
                 button(title='Прикрепить документ').chat__input_button
                     i(class="fa-solid fa-paperclip fa-2xl")
-                input(placeholder='Сообщение' name='message').chat__input.chat__input_text-left
+                input(data-child="textMessage").chat__input.chat__input_text-left
                 button(title='Отправить сообщение').chat__input_button.chat__input_push
                     i(class="fa-solid fa-arrow-right fa-2xl")
 `;

@@ -3,7 +3,7 @@ import Block from '../../components/block/block';
 import Input from '../../components/input/input';
 import { IComponentProps } from '../../components/Types';
 import Button from '../../components/button/button';
-import { checkEmail } from '../../utils/validation';
+import { checkEmail, checkFirstAndSecondName, checkLogin, checkPhone } from '../../utils/validation';
 import profileTemplate from './profile.template';
 import './profile.scss';
 
@@ -31,6 +31,14 @@ export default class Profile extends Block {
       value: 'Иван',
       name: 'first_name',
       type: 'text',
+      events: {
+        blur: (e) => {
+          checkFirstAndSecondName(e.currentTarget.value, firstNameField);
+        },
+        focus: (e) => {
+          checkFirstAndSecondName(e.currentTarget.value, firstNameField);
+        },
+      },
     });
 
     const lastNameField = new Input({
@@ -38,6 +46,14 @@ export default class Profile extends Block {
       value: 'Иванов',
       name: 'last_name',
       type: 'text',
+      events: {
+        blur: (e) => {
+          checkFirstAndSecondName(e.currentTarget.value, lastNameField);
+        },
+        focus: (e) => {
+          checkFirstAndSecondName(e.currentTarget.value, lastNameField);
+        },
+      },
     });
 
     const phoneField = new Input({
@@ -45,6 +61,14 @@ export default class Profile extends Block {
       name: 'phone',
       type: 'text',
       value: '+7 (909) 967 30 30',
+      events: {
+        blur: (e) => {
+          checkPhone(e.currentTarget.value, phoneField);
+        },
+        focus: (e) => {
+          checkPhone(e.currentTarget.value, phoneField);
+        },
+      },
     });
 
     const emailField = new Input({
@@ -56,8 +80,8 @@ export default class Profile extends Block {
         blur: (e) => {
           checkEmail(e.currentTarget.value, emailField);
         },
-        focus: () => {
-          console.log('focus');
+        focus: (e) => {
+          checkEmail(e.currentTarget.value, emailField);
         },
       },
     });
@@ -67,6 +91,14 @@ export default class Profile extends Block {
       name: 'chat_name',
       type: 'text',
       value: 'Иван',
+      events: {
+        blur: (e) => {
+          checkFirstAndSecondName(e.currentTarget.value, chatNameField);
+        },
+        focus: (e) => {
+          checkFirstAndSecondName(e.currentTarget.value, chatNameField);
+        },
+      },
     });
 
     const loginNameField = new Input({
@@ -74,6 +106,14 @@ export default class Profile extends Block {
       name: 'login',
       type: 'text',
       value: 'ivanivanov',
+      events: {
+        blur: (e) => {
+          checkLogin(e.currentTarget.value, loginNameField);
+        },
+        focus: (e) => {
+          checkLogin(e.currentTarget.value, loginNameField);
+        },
+      },
     });
 
     // Не успеваю реализовать модальные окна, оставил на будущее.
