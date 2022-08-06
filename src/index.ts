@@ -1,4 +1,4 @@
-import { render } from './utils/renderDOM';
+import render from './utils/renderDOM';
 import index from './pages/index/index';
 import Chat from './pages/chat/chat';
 import Profile from './pages/profile/profile';
