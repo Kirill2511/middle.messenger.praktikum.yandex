@@ -1,0 +1,44 @@
+@import '../../style/color';
+
+.from-input {
+  display: flex;
+  flex-direction: column;
+  font-size: .813rem;
+  justify-content: center;
+  position: relative;
+
+  input {
+    background-color: transparent;
+    border-style: none;
+    font-size: inherit;
+    outline: none;
+    width: 100%;
+    text-align: end;
+  }
+
+  .form-input-line {
+    width: 100%;
+  }
+
+  &.error {
+    .form-input-helper {
+      color: $red;
+      text-align: end;
+    }
+
+    .form-input-line {
+      border-bottom-color: $red;
+    }
+
+    input {
+      color: $red;
+    }
+  }
+
+  .form-input-helper {
+    color: $gray;
+    font-size: 9px;
+    margin-top: 3px;
+    width: 100%;
+  }
+}

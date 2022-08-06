@@ -1,10 +1,39 @@
-.button {
-  color: #3369f3;
-  font-size: .786rem;
-  font-weight: 500;
-  margin-top: 1rem;
+@import "../../style/color";
 
-  &:visited {
-    color: #3369f3
+.button {
+  align-items: flex-start;
+  background-color: $gray;
+  color: $white;
+  cursor: pointer;
+  display: flex;
+  font-size: .813rem;
+  font-weight: 500;
+  justify-content: center;
+  user-select: none;
+
+  &.button-link {
+    background-color: $white;
+    border-style: none;
+    color: $gray;
+    font-size: 18px;
+  }
+
+  &.button-link:hover {
+    text-decoration: underline;
+  }
+
+  &.button-secondary {
+    background-color: transparent;
+    color: $blue;
+  }
+
+  &.button-primary {
+    background-color: $gray;
+    color: $white;
+  }
+
+  &.button-red {
+    color: $red;
+    background-color: transparent;
   }
 }

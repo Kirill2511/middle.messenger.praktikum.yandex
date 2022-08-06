@@ -140,5 +140,8 @@ dist
 .sass-cache/
 *.css.map
 *.sass.map
-*.scss.map
 
+src/*.html
+src/*.css
+!/src/index.html
+!/src/assets/fontawesome/all.css

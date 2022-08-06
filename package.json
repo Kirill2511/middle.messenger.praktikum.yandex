@@ -5,28 +5,36 @@
   },
   "version": "1.0.0",
   "scripts": {
-    "dev": "yarn parcel ./src/index.pug",
-    "build": "yarn parcel build ./src/index.pug --dist-dir ./build",
-    "start": "node ./src/server.js"
+    "dev": "yarn parcel ./src/index.html",
+    "build": "yarn parcel build ./src/index.html --dist-dir ./build",
+    "start": "node ./server.js"
   },
   "packageManager": "yarn@3.2.1",
   "devDependencies": {
-    "@parcel/transformer-pug": "^2.6.2",
-    "@parcel/transformer-sass": "^2.6.2",
-    "eslint": "^7.32.0 || ^8.2.0",
-    "eslint-config-airbnb-base": "latest",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-import": "^2.25.2",
-    "eslint-plugin-prettier": "^4.2.1",
-    "parcel": "^2.6.2",
-    "parcel-transformer-elm-svg-modules": "^1.0.6",
-    "parcel-transformer-fonts": "^1.1.3",
-    "prettier": "^2.7.1",
-    "pug": "^3.0.2",
-    "sass": "^1.53.0"
+    "@parcel/transformer-pug": "2.7.0",
+    "@parcel/transformer-sass": "2.7.0",
+    "@types/pug": "^2.0.6",
+    "@types/uuid": "^8.3.4",
+    "@typescript-eslint/eslint-plugin": "5.32.0",
+    "@typescript-eslint/parser": "5.32.0",
+    "eslint": "8.21.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-import": "2.26.0",
+    "eslint-plugin-prettier": "4.2.1",
+    "parcel": "2.7.0",
+    "prettier": "2.7.1",
+    "sass": "1.54.2",
+    "stylelint": "14.9.1",
+    "stylelint-config-prettier": "9.0.3",
+    "stylelint-scss": "4.3.0",
+    "typescript": "4.7.4"
   },
   "dependencies": {
-    "express": "^4.18.1",
-    "normalize.css": "^8.0.1"
+    "clsx": "^1.2.1",
+    "express": "4.18.1",
+    "normalize.css": "8.0.1",
+    "pug": "3.0.2",
+    "uuid": "^8.3.2"
   }
 }
