@@ -8,4 +8,4 @@ ____
 - Демо - [netlify.app](frabjous-griffin-9fa393.netlify.app)
 
 ___
-Pull request - https://github.com/Kirill2511/middle.messenger.praktikum.yandex/pull/2
+**Ссылка на pull request: https://github.com/Kirill2511/middle.messenger.praktikum.yandex/pull/2**
