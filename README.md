@@ -1,4 +1,4 @@
-Ссылка на pull request: https://github.com/Kirill2511/middle.messenger.praktikum.yandex/pull/2
+https://github.com/Kirill2511/middle.messenger.praktikum.yandex/pull/2
 ___
 [![Netlify Status](https://api.netlify.com/api/v1/badges/49ba96a1-04b4-43ef-b798-e6782c27c239/deploy-status)](https://app.netlify.com/sites/frabjous-griffin-9fa393/deploys)
 ____
