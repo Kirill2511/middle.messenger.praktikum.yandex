@@ -146,3 +146,6 @@ src/*.css
 !/src/index.html
 !/src/assets/fontawesome/all.css
 !/src/font/Inter/inter.css
+
+# Local Netlify folder
+.netlify
