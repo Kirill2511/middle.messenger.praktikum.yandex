@@ -9,25 +9,15 @@
     "plugin:import/warnings",
     "plugin:import/typescript",
     "airbnb-base",
+    "airbnb-typescript/base",
     "plugin:prettier/recommended",
     "prettier"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaVersion": "latest",
+    "project": "./tsconfig.json",
+    "ecmaVersion": 12,
     "sourceType": "module"
-  },
-  "settings": {
-    "import/resolver": {
-      "node": {
-        "extensions": [
-          ".js",
-          ".jsx",
-          ".ts",
-          ".tsx"
-        ]
-      }
-    }
   },
   "plugins": [
     "prettier"
@@ -41,16 +31,6 @@
       "error",
       {
         "singleQuote": true
-      }
-    ],
-    "import/extensions": [
-      "error",
-      "ignorePackages",
-      {
-        "js": "never",
-        "jsx": "never",
-        "ts": "never",
-        "tsx": "never"
       }
     ]
   }

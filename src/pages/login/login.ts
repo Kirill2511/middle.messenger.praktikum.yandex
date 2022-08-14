@@ -1,98 +1,86 @@
-import { compile } from 'pug';
+import { Label } from '../../components/label';
+import renderDOM from '../../utils/renderDOM';
+import { Chat } from '../chat';
+import { Registration } from '../registration';
+import { Input } from '../../components/input';
+import { Button } from '../../components/button';
+import { logFormData } from '../../utils/logFormData';
+
+import template from './login.template.hbs';
+
+import * as styles from './login.scss';
+import { hideError, isFormValid, showError, validate } from '../../utils/validator';
 import Block from '../../components/block/block';
-import { IComponentProps } from '../../components/Types';
-import Button from '../../components/button/button';
-import loginTemplate from './login.template';
-import Input from '../../components/input/input';
-import { checkEmail, checkPassword } from '../../utils/validation';
-import './login.scss';
 
-export default class Login extends Block {
-  private emailField: Input;
+export class Login extends Block {
+  render(): DocumentFragment {
+    return this.compile(template, { styles });
+  }
 
-  constructor(props: IComponentProps) {
-    const submitButton = new Button({
-      child: 'Войти',
-      primary: true,
-    });
-
-    const registrationButton = new Button({
-      child: 'Зарегистрироваться',
-      secondary: true,
-      events: {
-        click: () => {
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore
-          window.renderPage('registration');
-        },
-      },
-    });
-
-    const emailField = new Input({
-      placeholder: 'Email',
-      value: 'какой-то неправильный email',
-      name: 'email',
+  protected initChildren(): void {
+    this.children.loginField = new Input({
+      name: 'login',
+      type: 'text',
+      text: 'Логин',
       events: {
         blur: (e) => {
-          checkEmail(e.currentTarget.value, emailField);
+          validate('login', e.target as HTMLInputElement);
         },
         focus: () => {
-          console.log('focus');
+          hideError();
         },
       },
     });
 
-    const passwordField = new Input({
-      placeholder: 'Пароль',
+    this.children.labelLoginField = new Label({
+      name: 'login',
+      text: 'Логин',
+    });
+
+    this.children.passwordField = new Input({
       name: 'password',
       type: 'password',
+      text: 'Пароль',
       events: {
-        blur: (e) => {
-          checkPassword(e.currentTarget.value, passwordField);
+        blur: (evt) => {
+          validate('password', evt.target as HTMLInputElement);
         },
-        focus: (e) => {
-          checkPassword(e.currentTarget.value, passwordField);
+        focus: () => {
+          hideError();
         },
       },
     });
 
-    super({
-      ...props,
-      children: {
-        submitButton: submitButton.content,
-        registrationButton: registrationButton.content,
-        emailField: emailField.content,
-        passwordField: passwordField.content,
+    this.children.labelPasswordField = new Label({
+      name: 'password',
+      text: 'Пароль',
+    });
+
+    this.children.buttonLogin = new Button({
+      text: 'Авторизоваться',
+      events: {
+        click: (e) => {
+          const isError = (document.querySelector('.input-error') as HTMLElement).textContent;
+          if (isFormValid('.login__form-wrapper') && !isError) {
+            logFormData('.login__form-wrapper');
+            renderDOM('#root', new Chat());
+          } else {
+            e.preventDefault();
+            showError('Все поля должны быть заполнены');
+          }
+        },
       },
     });
-    this.emailField = emailField;
-  }
 
-  render(): string {
-    return compile(loginTemplate)();
-  }
-
-  protected customiseComponent() {
-    const form: HTMLFormElement = <HTMLFormElement>this.node.querySelector('form.login-form');
-
-    if (form) {
-      form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const formData = new FormData(form);
-        console.log(Object.fromEntries(formData.entries()));
-        const email = formData.get('email');
-
-        let isValid = true;
-        if (email) {
-          isValid = checkEmail(<string>email, this.emailField);
-        }
-
-        if (isValid) {
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore
-          window.renderPage('chat'); // временно вместо роутера
-        }
-      });
-    }
+    this.children.buttonReg = new Button({
+      text: 'Нет аккаунта?',
+      className: 'button_no-background',
+      events: {
+        click: (e) => {
+          e.preventDefault();
+          renderDOM('#root', new Registration());
+        },
+      },
+    });
   }
 }

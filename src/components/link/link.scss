@@ -1,0 +1,19 @@
+@import "../../style/color";
+
+.link-button {
+  text-align: center;
+  color: $light-blue;
+}
+
+.link-button:visited {
+  color: $light-blue;
+}
+
+.link-button_profile {
+  color: $gray-text;
+  font-size: .857rem;
+}
+
+.link-button_profile:visited {
+  color: $gray-text;
+}

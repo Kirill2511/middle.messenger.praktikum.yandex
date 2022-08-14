@@ -1,152 +1,185 @@
-import { compile } from 'pug';
-import Block from '../../components/block/block';
-import Input from '../../components/input/input';
-import { IComponentProps } from '../../components/Types';
-import Button from '../../components/button/button';
-import { checkEmail, checkFirstAndSecondName, checkPassword, checkPhone } from '../../utils/validation';
-import registrationTemplate from './registration.template';
+import registrationTemplate from './registration.template.hbs';
 import './registration.scss';
+import renderDOM from '../../utils/renderDOM';
+import { Profile } from '../profile';
+import { Label } from '../../components/label';
+import { Login } from '../login';
+import { Button } from '../../components/button';
+import { mockUser } from '../../mock/user';
+import { Input } from '../../components/input';
+import { Link } from '../../components/link';
+import { logFormData } from '../../utils/logFormData';
+import { hideError, isFormValid, showError, validate } from '../../utils/validator';
+import Block from '../../components/block/block';
 
-export default class Registration extends Block {
-  private emailField: Input;
-
-  constructor(props: IComponentProps) {
-    const submitButton = new Button({
-      child: 'Зарегистрироваться',
-    });
-
-    const loginButton = new Button({
-      child: 'Войти',
-      secondary: true,
+export class Registration extends Block {
+  protected initChildren() {
+    this.children.submitButton = new Button({
+      text: 'Зарегистрироваться',
       events: {
-        click: () => {
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore
-          window.renderPage('login');
+        click: (e) => {
+          const isError = (document.querySelector('.input-error') as HTMLElement).textContent;
+          if (isFormValid('.registration__form-wrapper') && !isError) {
+            logFormData('.registration__form-wrapper');
+            renderDOM('#root', new Profile({ user: mockUser }));
+          } else {
+            e.preventDefault();
+            showError('Все поля должны быть заполнены');
+          }
         },
       },
     });
 
-    const firstNameField = new Input({
-      placeholder: 'Имя',
+    this.children.loginButton = new Link({
+      text: 'Войти',
+      className: 'link-button',
+      events: {
+        click: (e) => {
+          e.preventDefault();
+          renderDOM('#root', new Login());
+        },
+      },
+    });
+
+    this.children.loginField = new Input({
+      name: 'login',
+      type: 'text',
+      text: 'Логин',
+      events: {
+        blur: (evt) => {
+          validate('login', evt.target as HTMLInputElement);
+        },
+        focus: () => {
+          hideError();
+        },
+      },
+    });
+
+    this.children.labelLoginField = new Label({
+      name: 'login',
+      text: 'Логин',
+    });
+
+    this.children.firstNameField = new Input({
       name: 'first_name',
+      type: 'text',
+      text: 'Имя',
       events: {
-        blur: (e: { currentTarget: { value: string } }) => {
-          checkFirstAndSecondName(e.currentTarget.value, firstNameField);
+        blur: (evt) => {
+          validate('name', evt.target as HTMLInputElement);
         },
-        focus: (e) => {
-          checkFirstAndSecondName(e.currentTarget.value, firstNameField);
+        focus: () => {
+          hideError();
         },
       },
     });
 
-    const lastNameField = new Input({
-      placeholder: 'Фамилия',
-      name: 'last_name',
+    this.children.labelFirstNameField = new Label({
+      name: 'first_name',
+      text: 'Имя',
+    });
+
+    this.children.secondNameField = new Input({
+      name: 'second_name',
+      type: 'text',
+      text: 'Фамилия',
       events: {
-        blur: (e: { currentTarget: { value: string } }) => {
-          checkFirstAndSecondName(e.currentTarget.value, lastNameField);
+        blur: (evt) => {
+          validate('name', evt.target as HTMLInputElement);
         },
-        focus: (e) => {
-          checkFirstAndSecondName(e.currentTarget.value, lastNameField);
+        focus: () => {
+          hideError();
         },
       },
     });
 
-    const phoneField = new Input({
-      placeholder: 'Телефон',
+    this.children.labelSecondNameField = new Label({
+      name: 'second_name',
+      text: 'Фамилия',
+    });
+
+    this.children.phoneField = new Input({
       name: 'phone',
+      type: 'tel',
+      text: 'Телефон',
       events: {
-        blur: (e: { currentTarget: { value: string } }) => {
-          checkPhone(e.currentTarget.value, phoneField);
+        blur: (evt) => {
+          validate('phone', evt.target as HTMLInputElement);
         },
-        focus: (e) => {
-          checkPhone(e.currentTarget.value, phoneField);
+        focus: () => {
+          hideError();
         },
       },
     });
 
-    const emailField = new Input({
-      placeholder: 'Email',
+    this.children.labelPhoneField = new Label({
+      name: 'phone',
+      text: 'Телефон',
+    });
+
+    this.children.emailField = new Input({
       name: 'email',
-      value: '',
+      type: 'email',
+      text: 'Почта',
       events: {
-        blur: (e: { currentTarget: { value: string } }) => {
-          checkEmail(e.currentTarget.value, emailField);
+        blur: (evt) => {
+          validate('email', evt.target as HTMLInputElement);
         },
-        focus: (e) => {
-          checkEmail(e.currentTarget.value, emailField);
+        focus: () => {
+          hideError();
         },
       },
     });
 
-    const passwordField = new Input({
-      placeholder: 'Пароль',
+    this.children.labelEmailField = new Label({
+      name: 'email',
+      text: 'Почта',
+    });
+
+    this.children.passwordField = new Input({
       name: 'password',
-      value: '',
+      type: 'password',
+      text: 'Пароль',
       events: {
-        blur: (e) => {
-          checkPassword(e.currentTarget.value, passwordField);
+        blur: (evt) => {
+          validate('password', evt.target as HTMLInputElement);
         },
-        focus: (e) => {
-          checkPassword(e.currentTarget.value, passwordField);
+        focus: () => {
+          hideError();
         },
       },
     });
 
-    const chatNameField = new Input({
-      placeholder: 'Имя в чате',
-      name: 'chat_name',
+    this.children.labelPasswordField = new Label({
+      name: 'password',
+      text: 'Пароль',
+    });
+
+    this.children.passwordTwoField = new Input({
+      name: 'password2',
+      type: 'password',
+      text: 'Пароль еще раз',
       events: {
-        blur: (e) => {
-          checkFirstAndSecondName(e.currentTarget.value, chatNameField);
+        blur: (evt) => {
+          const passInput = document.querySelector('input[name=password]') as HTMLInputElement;
+
+          if (passInput && passInput.value !== (evt.target as HTMLInputElement).value) {
+            showError('Пароли должны совпадать');
+          }
         },
-        focus: (e) => {
-          checkFirstAndSecondName(e.currentTarget.value, chatNameField);
+        focus: () => {
+          hideError();
         },
       },
     });
 
-    super({
-      ...props,
-      children: {
-        submitButton: submitButton.content,
-        loginButton: loginButton.content,
-        firstNameField: firstNameField.content,
-        lastNameField: lastNameField.content,
-        emailField: emailField.content,
-        phoneField: phoneField.content,
-        chatNameField: chatNameField.content,
-        passwordField: passwordField.content,
-      },
+    this.children.labelPasswordTwoField = new Label({
+      name: 'password2',
+      text: 'Пароль (ещё раз)',
     });
-    this.emailField = emailField;
   }
 
-  render(): string {
-    return compile(registrationTemplate)();
-  }
-
-  protected customiseComponent() {
-    const form: HTMLFormElement = <HTMLFormElement>this.node.querySelector('form');
-
-    if (form) {
-      form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const formData = new FormData(form);
-        console.log(Object.fromEntries(formData.entries()));
-        const email = formData.get('email');
-        let isValid = true;
-        if (email) {
-          isValid = checkEmail(<string>email, this.emailField);
-        }
-
-        if (isValid) {
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore
-          window.renderPage('chat');
-        }
-      });
-    }
+  protected render(): DocumentFragment {
+    return this.compile(registrationTemplate, {});
   }
 }

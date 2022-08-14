@@ -1,16 +1,15 @@
 import Block from '../components/block/block';
 
-function removeAllChildNodes(parent: Element) {
-  while (parent.firstChild) {
-    parent.removeChild(parent.firstChild);
-  }
-}
+const renderDOM = (selector: string, component: Block) => {
+  const root = document.querySelector(selector);
 
-export default function render(query: string, block: Block) {
-  const root = document.querySelector(query);
-  if (root) {
-    removeAllChildNodes(root);
-    root.appendChild(block.content);
+  if (!root) {
+    throw new Error('Селектор не найдет');
   }
-  return root;
-}
+
+  root.innerHTML = '';
+
+  root.append(component.getContent());
+};
+
+export default renderDOM;

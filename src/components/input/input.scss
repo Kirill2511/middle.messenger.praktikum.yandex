@@ -1,44 +1,20 @@
 @import '../../style/color';
 
-.from-input {
-  display: flex;
-  flex-direction: column;
-  font-size: .813rem;
-  justify-content: center;
+.input-wrapper {
+  padding: 10px 20px;
   position: relative;
-
-  input {
-    background-color: transparent;
-    border-style: none;
-    font-size: inherit;
-    outline: none;
-    width: 100%;
-    text-align: end;
-  }
-
-  .form-input-line {
-    width: 100%;
-  }
-
-  &.error {
-    .form-input-helper {
-      color: $red;
-      text-align: end;
-    }
-
-    .form-input-line {
-      border-bottom-color: $red;
-    }
-
-    input {
-      color: $red;
-    }
-  }
-
-  .form-input-helper {
-    color: $gray;
-    font-size: 9px;
-    margin-top: 3px;
-    width: 100%;
-  }
 }
+
+.input-field {
+  border: 0;
+  border-bottom: 1px solid $light-blue;
+  font-family: Inter, serif;
+  font-size: .929rem;
+  padding: 7px 0;
+  width: 100%;
+}
+
+.input-field:focus {
+  outline: none;
+}
+
