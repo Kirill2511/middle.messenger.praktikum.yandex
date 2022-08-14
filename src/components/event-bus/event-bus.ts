@@ -1,11 +1,9 @@
+type TCallback = (...args: any[]) => void;
+
 export default class EventBus {
-  protected listeners: Record<string, ((...args: any) => void)[]>;
+  private listeners: Record<string, TCallback[]> = {};
 
-  constructor() {
-    this.listeners = {};
-  }
-
-  on(event: string, callback: (...args: any) => void): void {
+  on(event: string, callback: TCallback) {
     if (!this.listeners[event]) {
       this.listeners[event] = [];
     }
@@ -13,25 +11,19 @@ export default class EventBus {
     this.listeners[event].push(callback);
   }
 
-  off(event: string, callback: (...args: any) => void): void {
+  off(event: string, callback: TCallback) {
     if (!this.listeners[event]) {
       throw new Error(`Нет события: ${event}`);
     }
 
-    this.listeners[event] = this.listeners[event].filter((listener) => listener !== callback);
+    this.listeners[event].filter((listener) => listener !== callback);
   }
 
-  emit(event: string, ...args: any): void {
+  emit(event: string, ...args: any[]) {
     if (!this.listeners[event]) {
       throw new Error(`Нет события: ${event}`);
     }
 
-    this.listeners[event].forEach(function (listener) {
-      listener(...args);
-    });
-  }
-
-  removeAll(event: string): void {
-    delete this.listeners[event];
+    this.listeners[event].forEach((listener) => listener(...args));
   }
 }

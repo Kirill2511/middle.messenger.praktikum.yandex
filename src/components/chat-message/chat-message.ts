@@ -1,51 +1,19 @@
-import clsx from 'clsx';
-import { compile } from 'pug';
 import Block from '../block/block';
-import { IChatContactProps } from '../Types';
+import template from './chat-message.template.hbs';
 
-const template = `
-li
-    div.message-text
-    div.message-time
-    div.message-image
-`;
+import * as styles from './chat-message.scss';
 
-export default class ChatMessage extends Block {
-  props: IChatContactProps;
+interface IChatMessage {
+  text: string;
+  time: string;
+}
 
-  get className(): string {
-    return clsx('chat__messages', this.props.className, {
-      'me-message': this.props.me,
-      'image-message': this.props.img,
-    });
+export class ChatMessage extends Block {
+  constructor(props: IChatMessage) {
+    super(props);
   }
 
-  protected get proplist() {
-    return [
-      {
-        name: 'text',
-        selector: '.message-text',
-        attribute: 'innerText',
-        isValue: true,
-      },
-      {
-        name: 'time',
-        selector: '.message-time',
-        attribute: 'innerText',
-        isValue: true,
-      },
-    ];
-  }
-
-  render(): string {
-    return compile(template)({
-      child: this.props.child,
-    });
-  }
-
-  protected customiseComponent() {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    this.node.querySelector('.message-image').classList.add(this.props.img);
+  protected render(): DocumentFragment {
+    return this.compile(template, { ...this.props, styles });
   }
 }

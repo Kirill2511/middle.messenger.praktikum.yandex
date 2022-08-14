@@ -1,34 +1,21 @@
-import clsx from 'clsx';
-import { compile } from 'pug';
+import template from './button.template.hbs';
+import * as styles from './button.scss';
 import Block from '../block/block';
-import { IButtonProps } from '../Types';
-import './button.scss';
 
-let template = 'button #{child}';
+interface IButton {
+  text: string;
+  className?: string;
+  events?: {
+    click?: (e: Event) => void;
+  };
+}
 
-export default class Button extends Block implements IButtonProps {
-  protected props: IButtonProps;
-
-  constructor(props: IButtonProps) {
-    if (props.link) {
-      template = `a(href="${props.href}") #{child}`;
-    }
-
+export class Button extends Block {
+  constructor(props: IButton) {
     super(props);
   }
 
-  get className(): string {
-    return clsx('button', this.props.className, {
-      'button-secondary': this.props.secondary,
-      'button-primary': this.props.primary,
-      'button-link': this.props.link,
-      'button-red': this.props.red,
-    });
-  }
-
-  render() {
-    return compile(template)({
-      child: this.props.child,
-    });
+  protected render(): DocumentFragment {
+    return this.compile(template, { ...this.props, styles });
   }
 }

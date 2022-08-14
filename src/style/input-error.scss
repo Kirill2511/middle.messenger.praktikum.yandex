@@ -1,0 +1,20 @@
+@import 'color';
+
+.input-error {
+  border-radius: 5px;
+  bottom: 110px;
+  box-shadow: 0 0 6px #f71909b0;
+  color: $red;
+  display: none;
+  font-family: Inter, serif;
+  font-size: .714rem;
+  font-weight: normal;
+  padding: 5px;
+  position: absolute;
+  right: 45px;
+  width: 250px;
+}
+
+.error-visible {
+  display: block;
+}

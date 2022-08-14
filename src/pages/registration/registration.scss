@@ -13,16 +13,26 @@
 }
 
 .registration__title {
-  margin: 0 0 2.857rem;
+  font-size: 1.429rem;
+  margin: 20px 0 40px;
 }
 
-.registration__button {
-  color: $blue;
-  font-size: .786rem;
-  font-weight: 500;
-  margin-top: 1rem;
+.registration__form-wrapper {
+  position: relative;
 }
 
-.registration__login {
-  margin-top: 14px;
+.registration__form-wrapper > .input-error {
+  left: 0;
+  bottom: 76px;
+  width: 280px;
+}
+
+.registration__form-wrapper_field {
+  margin-top: 4px;
+}
+
+.button-wrapper {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
 }

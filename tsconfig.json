@@ -17,10 +17,7 @@
     "noFallthroughCasesInSwitch": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
-    "strict": true,
-    "typeRoots": [
-      "./src/components"
-    ]
+    "strict": true
   },
   "include": [
     "src"

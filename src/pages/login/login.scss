@@ -1,24 +1,35 @@
 @import '../../style/color';
 
-.login {
-  align-items: center;
+.login__wrapper {
+  display: flex;
+  height: 100vh;
+}
+
+.login__form-wrapper {
   background: $white;
   border-radius: 12px;
-  box-shadow: 0 0 6px #00000024;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.14);;
   display: flex;
   flex-direction: column;
-  margin: 50px auto;
+  margin: auto;
   padding: 30px;
+  position: relative;
   width: 340px;
 }
 
-.login__title {
-  margin: 0 0 40px;
+.login__form-wrapper_title {
+  font-size: 1.429rem;
+  font-weight: 500;
+  margin: 20px 0;
+  text-align: center;
 }
 
 .login__button {
-  color: $blue;
-  font-size: .786rem;
-  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  margin-top: 160px;
+}
+
+.link-button {
   margin-top: 14px;
 }
