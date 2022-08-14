@@ -140,5 +140,12 @@ dist
 .sass-cache/
 *.css.map
 *.sass.map
-*.scss.map
 
+src/*.html
+src/*.css
+!/src/index.html
+!/src/assets/fontawesome/all.css
+!/src/font/Inter/inter.css
+
+# Local Netlify folder
+.netlify

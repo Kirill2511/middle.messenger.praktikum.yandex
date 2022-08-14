@@ -1,10 +1,18 @@
-.button {
-  color: #3369f3;
-  font-size: .786rem;
-  font-weight: 500;
-  margin-top: 1rem;
+@import "../../style/color";
 
-  &:visited {
-    color: #3369f3
-  }
+.button {
+  background: $light-blue;
+  border: 0;
+  border-radius: 8px;
+  color: $white;
+  cursor: pointer;
+  font-family: Inter, serif;
+  font-size: 13px;
+  line-height: 13px;
+  padding: 12px;
+}
+
+.button_no-background {
+  background-color: transparent;
+  color: $light-blue;
 }

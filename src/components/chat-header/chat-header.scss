@@ -1,0 +1,24 @@
+@import "../../style/color";
+
+.chat-header {
+  border-bottom: solid 1px $separator-color;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 10px;
+}
+
+.chat-header__nicknames {
+  align-items: center;
+  color: #1e1e1e;
+  display: flex;
+}
+
+.chat-header__nicknames > i {
+  margin-right: 10px;
+}
+
+.chat-header__button {
+  display: flex;
+}

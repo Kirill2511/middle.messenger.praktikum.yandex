@@ -1,0 +1,11 @@
+@import "../../style/color";
+
+.input-label {
+  color: $gray-text;
+  font-size: 13px;
+  line-height: 13px;
+}
+
+.input-label:not(:first-child) {
+  margin-top: 10px;
+}
