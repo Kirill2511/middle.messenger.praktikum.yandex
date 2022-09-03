@@ -1,14 +1,14 @@
+import Block from '../../utils/Block';
 import template from './user-info-item.template.hbs';
 import * as styles from './user-info-item.scss';
-import Block from '../block/block';
 
-interface IUserInfoItem {
-  name: string;
+interface Props {
   value: string;
+  title: string;
 }
 
-export class UserInfoItem extends Block {
-  constructor(props: IUserInfoItem) {
+export class UserInfoItem extends Block<Props> {
+  constructor(props: Props) {
     super(props);
   }
 

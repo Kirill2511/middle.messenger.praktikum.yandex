@@ -1,17 +1,19 @@
+import Block from '../../utils/Block';
 import template from './chat-preview.template.hbs';
-
 import * as styles from './chat-preview.scss';
-import Block from '../block/block';
 
-interface IChatPreview {
+interface Props {
   name: string;
   text: string;
-  time: string;
-  number: string;
+  time?: string;
+  unreadNumber: number;
+  events?: {
+    click?: (evt: Event) => void;
+  };
 }
 
-export class ChatPreview extends Block {
-  constructor(props: IChatPreview) {
+export class ChatPreview extends Block<Props> {
+  constructor(props: Props) {
     super(props);
   }
 

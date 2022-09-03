@@ -1,9 +1,8 @@
+import Block from '../../utils/Block';
 import template from './link.template.hbs';
-
 import * as styles from './link.scss';
-import Block from '../block/block';
 
-interface ILink {
+interface Props {
   url?: string;
   text: string;
   className: string;
@@ -12,12 +11,12 @@ interface ILink {
   };
 }
 
-export class Link extends Block {
-  constructor(props: ILink) {
+export class Link extends Block<Props> {
+  constructor(props: Props) {
     super(props);
   }
 
-  protected render(): DocumentFragment {
+  render(): DocumentFragment {
     return this.compile(template, { ...this.props, styles });
   }
 }

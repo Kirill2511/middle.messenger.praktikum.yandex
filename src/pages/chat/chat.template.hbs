@@ -1,36 +1,27 @@
 <main>
-  <div class='chat-container'>
-    <div class='chat-sidebar'>
-      <div class='sidebar-profile'>
-        {{{profile}}}
-      </div>
-      {{{inputSeach}}}
-      <ul class='chat-list'>
-        {{{chat1}}}
-        {{{chat2}}}
-        {{{chat3}}}
-        {{{chat4}}}
-      </ul>
+    <div class="chat-container">
+        <div class="chat-sidebar">
+            <div class="sidebar-profile">
+                {{{linkProfile}}}
+            </div>
+            <form class="add-chat">
+                {{{inputChatName}}}
+                {{{buttonAddChat}}}
+            </form>
+            <ul class="chat-list">
+                {{{chatList}}}
+            </ul>
+        </div>
+        <div class="chats-wrapper">
+            {{{header}}}
+            <div class="link-wrapper">
+                {{{messages}}}
+            </div>
+
+            <form class="message-form">
+                {{{inputMessage}}}
+                {{{buttonMessage}}}
+            </form>
+        </div>
     </div>
-    <section class='chats-wrapper'>
-      {{{chatHeader}}}
-      <div class='chats-wrapper_message'>
-        <div class='chats-wrapper_content'>
-          {{{chatMessage1}}}
-          {{{chatMessage2}}}
-          {{{chatMessage3}}}
-        </div>
-        <h2>Временно расположены тут страницы</h2>
-        <div>
-          {{{link404}}}
-          {{{link500}}}
-        </div>
-        <form class='message-form'>
-          <button type='button' class='message-form-paperclip'><i class="fa-solid fa-paperclip fa-xl"></i></button>
-          {{{inputMessage}}}
-          <button type='submit' class="message-form-button">&#62;</button>
-        </form>
-      </div>
-    </section>
-  </div>
 </main>

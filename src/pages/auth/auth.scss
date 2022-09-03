@@ -1,0 +1,60 @@
+@import "../../style/color";
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.form-wrapper {
+  background: $white;
+  border-radius: 12px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.14);
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  padding: 30px;
+  position: relative;
+  width: 340px;
+}
+
+.form-header {
+  font-size: 20px;
+  line-height: 20px;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.button-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-top: 160px;
+}
+
+.link-button {
+  color: #3369F3;
+  display: flex;
+  font-family: 'Inter';
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 500;
+  justify-content: center;
+  line-height: 11px;
+  margin-top: 14px;
+}
+
+.input-error {
+  bottom: 110px;
+  box-shadow: 0 0 6px #f71909b0;
+  color: $red;
+  display: none;
+  font-size: 10px;
+  line-height: 14px;
+  padding: 5px;
+  position: absolute;
+  right: 45px;
+  width: 250px;
+}
+
+.error-visible {
+  display: block;
+}
