@@ -1,7 +1,8 @@
-@import "../../style/color";
+@import '../../style/color';
 
 input.message-input-label,
-input.sidebar-search {
+input.sidebar-search,
+input.user-id {
   background: $light-gray;
   border: 0;
   border-radius: 16px;
@@ -20,7 +21,11 @@ input:focus {
 }
 
 .sidebar-search {
-  display: block;
   margin-top: 23px;
+  display: block;
   text-align: center;
+}
+
+.user-id {
+  width: 150px !important;
 }

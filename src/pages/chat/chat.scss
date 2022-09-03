@@ -37,31 +37,33 @@
 .chats-wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: 10px;
   width: 100%;
 }
 
 .link-wrapper {
   border-bottom: 1px solid $separator-color;
+  border-top: 1px solid $separator-color;
   display: flex;
   flex: 1 0 auto;
   flex-direction: column;
   gap: 15px;
+  height: calc(100vh - 165px);
+  margin: 0 10px;
+  overflow-y: auto;
+  padding-bottom: 10px;
+  padding-right: 50px;
+  padding-top: 10px;
   text-align: center;
 }
 
 .message-form {
   align-items: center;
+  background: $sidebar-background;
   display: flex;
   flex: 0 0 auto;
   justify-content: space-between;
-  padding: 15px 5px 0;
+  padding: 15px 5px;
   width: 100%;
-}
-
-.message-form-paperclip {
-  margin-right: 10px;
 }
 
 .message-form-button {
@@ -74,4 +76,18 @@
   font-weight: 600;
   height: 32px;
   width: 32px;
+}
+
+.add-chat {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.chat-options {
+  background: $sidebar-background;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
 }

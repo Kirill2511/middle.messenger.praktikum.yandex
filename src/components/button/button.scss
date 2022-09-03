@@ -1,18 +1,13 @@
-@import "../../style/color";
+@import '../../style/color';
 
-.button {
+.main-button {
   background: $light-blue;
   border: 0;
   border-radius: 8px;
   color: $white;
   cursor: pointer;
-  font-family: Inter, serif;
+  font-family: 'Inter';
   font-size: 13px;
   line-height: 13px;
   padding: 12px;
-}
-
-.button_no-background {
-  background-color: transparent;
-  color: $light-blue;
 }

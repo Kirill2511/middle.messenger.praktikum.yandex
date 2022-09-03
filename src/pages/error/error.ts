@@ -1,8 +1,7 @@
+import Block from '../../utils/Block';
 import template from './error.template.hbs';
-import { Link } from '../../components/link';
-
 import * as styles from './error.scss';
-import Block from '../../components/block/block';
+import { Link } from '../../components/link';
 
 export interface IError {
   number: number;
@@ -10,14 +9,14 @@ export interface IError {
   link_text: string;
 }
 
-class Error extends Block {
+export class Error extends Block<IError> {
   constructor(props: IError) {
     super(props);
   }
 
-  protected initChildren(props: IError) {
+  protected initChildren() {
     this.children.link = new Link({
-      text: props.link_text,
+      text: this.props.link_text,
       className: 'link-button',
     });
   }
@@ -26,5 +25,3 @@ class Error extends Block {
     return this.compile(template, { ...this.props, styles });
   }
 }
-
-export default Error;

@@ -1,9 +1,9 @@
-@import "../../style/color";
+@import '../../style/color';
 
 .input-label {
   color: $gray-text;
-  font-size: 13px;
-  line-height: 13px;
+  font-size: 9px;
+  line-height: 9px;
 }
 
 .input-label:not(:first-child) {

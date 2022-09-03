@@ -1,7 +1,6 @@
+import Block from '../../utils/Block';
 import template from './chat-input.template.hbs';
-
 import * as styles from './chat-input.scss';
-import Block from '../block/block';
 
 interface IChatInput {
   name: string;
@@ -10,7 +9,7 @@ interface IChatInput {
   placeholder?: string;
 }
 
-export class ChatInput extends Block {
+export class ChatInput extends Block<IChatInput> {
   constructor(props: IChatInput) {
     super(props);
   }

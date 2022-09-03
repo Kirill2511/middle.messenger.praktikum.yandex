@@ -1,0 +1,36 @@
+@import "../../style/color";
+
+.message-outgoing {
+  align-self: flex-end;
+  background: #e4edfd;
+  border-radius: 10px 10px 0;
+  max-width: 400px;
+  padding: 10px;
+}
+
+.message-incoming {
+  align-self: flex-start;
+  background: #f8f8f8;
+  border-radius: 0 10px 10px;
+  max-width: 400px;
+  padding: 10px;
+}
+
+.message {
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+}
+
+.message-text {
+  font-size: 12px;
+  line-height: 15px;
+  margin-right: 40px;
+  text-align: start;
+}
+
+.message-time {
+  font-size: 9px;
+  line-height: 9px;
+  align-self: end;
+}
