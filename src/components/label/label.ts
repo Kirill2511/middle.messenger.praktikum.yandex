@@ -2,13 +2,13 @@ import Block from '../../utils/Block';
 import template from './label.template.hbs';
 import * as styles from './label.scss';
 
-interface Props {
+interface ILabel {
   name: string;
   text: string;
 }
 
-export class Label extends Block<Props> {
-  constructor(props: Props) {
+export class Label extends Block<ILabel> {
+  constructor(props: ILabel) {
     super(props);
   }
 

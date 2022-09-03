@@ -5,12 +5,12 @@ import ChatsController from '../../utils/controllers/chatsController';
 import { ChatInput } from '../chat-input';
 import { logFormData } from '../../utils/logFormData';
 
-interface Props {
+interface IChatOptions {
   chatId: number;
 }
 
-export class ChatOptions extends Block<Props> {
-  constructor(props: Props) {
+export class ChatOptions extends Block<IChatOptions> {
+  constructor(props: IChatOptions) {
     super(props);
   }
 

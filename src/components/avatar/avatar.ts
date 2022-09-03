@@ -1,15 +1,15 @@
 import Block from '../../utils/Block';
 import template from './avatar.template.hbs';
 
-interface Props {
+interface IAvatar {
   link: string;
   events: {
     click: (evt: Event) => void;
   };
 }
 
-export class Avatar extends Block<Props> {
-  constructor(props: Props) {
+export class Avatar extends Block<IAvatar> {
+  constructor(props: IAvatar) {
     super(props);
   }
 

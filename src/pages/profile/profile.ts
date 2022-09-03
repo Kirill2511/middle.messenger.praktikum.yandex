@@ -7,7 +7,7 @@ import AuthController from '../../utils/controllers/authController';
 import { Avatar } from '../../components/avatar';
 import { Router } from '../../utils/router/Router';
 
-export interface User {
+export interface IProfile {
   email: string;
   login: string;
   first_name: string;
@@ -17,8 +17,8 @@ export interface User {
   avatar: string;
 }
 
-export class Profile extends Block<User> {
-  constructor(props: User) {
+export class Profile extends Block<IProfile> {
+  constructor(props: IProfile) {
     super(props);
   }
 

@@ -2,15 +2,15 @@ import Block from '../../utils/Block';
 import template from './chat-input.template.hbs';
 import * as styles from './chat-input.scss';
 
-interface Props {
+interface IChatInput {
   name: string;
   className?: string;
   autocomplete: 'on' | 'off';
   placeholder?: string;
 }
 
-export class ChatInput extends Block<Props> {
-  constructor(props: Props) {
+export class ChatInput extends Block<IChatInput> {
+  constructor(props: IChatInput) {
     super(props);
   }
 

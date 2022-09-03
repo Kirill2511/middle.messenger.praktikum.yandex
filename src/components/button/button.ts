@@ -2,15 +2,15 @@ import Block from '../../utils/Block';
 import template from './button.template.hbs';
 import * as styles from './button.scss';
 
-interface Props {
+interface IButton {
   text: string;
   events?: {
     click?: (e: Event) => void;
   };
 }
 
-export class Button extends Block<Props> {
-  constructor(props: Props) {
+export class Button extends Block<IButton> {
+  constructor(props: IButton) {
     super(props);
   }
 

@@ -12,7 +12,7 @@ import { ChatOptions } from '../../components/chat-options';
 import { Message } from '../../components/message';
 import { IChatInfo, IMessageData } from '../../types/chats';
 
-interface Props {
+interface IChat {
   chatsStore: any;
   currentUser: Record<string, any>;
   currentChat: any;
@@ -20,8 +20,8 @@ interface Props {
   chatId: number;
 }
 
-export class Chat extends Block<Props> {
-  constructor(props: Props) {
+export class Chat extends Block<IChat> {
+  constructor(props: IChat) {
     super(props);
   }
 

@@ -2,7 +2,7 @@ import Block from '../../utils/Block';
 import template from './link.template.hbs';
 import * as styles from './link.scss';
 
-interface Props {
+interface ILink {
   url?: string;
   text: string;
   className: string;
@@ -11,8 +11,8 @@ interface Props {
   };
 }
 
-export class Link extends Block<Props> {
-  constructor(props: Props) {
+export class Link extends Block<ILink> {
+  constructor(props: ILink) {
     super(props);
   }
 

@@ -3,14 +3,14 @@ import template from './error.template.hbs';
 import * as styles from './error.scss';
 import { Link } from '../../components/link';
 
-export interface ErrorPage {
+export interface IError {
   number: number;
   text: string;
   link_text: string;
 }
 
-export class Error extends Block<ErrorPage> {
-  constructor(props: ErrorPage) {
+export class Error extends Block<IError> {
+  constructor(props: IError) {
     super(props);
   }
 

@@ -2,7 +2,7 @@ import Block from '../../utils/Block';
 import template from './input.template.hbs';
 import * as styles from './input.scss';
 
-interface Props {
+interface IInput {
   name: string;
   type: 'text' | 'password' | 'email' | 'tel';
   text: string;
@@ -13,8 +13,8 @@ interface Props {
   };
 }
 
-export class Input extends Block<Props> {
-  constructor(props: Props) {
+export class Input extends Block<IInput> {
+  constructor(props: IInput) {
     super(props);
   }
 

@@ -2,7 +2,7 @@ import Block from '../../utils/Block';
 import template from './chat-preview.template.hbs';
 import * as styles from './chat-preview.scss';
 
-interface Props {
+interface IChatPreview {
   name: string;
   text: string;
   time?: string;
@@ -12,8 +12,8 @@ interface Props {
   };
 }
 
-export class ChatPreview extends Block<Props> {
-  constructor(props: Props) {
+export class ChatPreview extends Block<IChatPreview> {
+  constructor(props: IChatPreview) {
     super(props);
   }
 
