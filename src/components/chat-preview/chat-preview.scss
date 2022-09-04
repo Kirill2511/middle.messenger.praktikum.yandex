@@ -1,65 +1,65 @@
-@import "../../style/color";
+@import '../../style/color';
 
 .chat-preview {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
   align-items: flex-start;
   border-bottom: 1px solid $separator-color;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   padding: 12px 0;
 }
 
 .chat-preview:hover {
-  background-color: #e4edfd;
+  background-color: $chats-hover;
   cursor: pointer;
 }
 
 .chat-preview__avatar {
-  width: 47px;
-  height: 47px;
-  border-radius: 50%;
   background: $light-gray;
+  border-radius: 50%;
+  height: 47px;
   margin-right: 10px;
+  width: 47px;
 }
 
 .chat-preview__name {
   font-size: 13px;
-  line-height: 13px;
   font-weight: 600;
+  line-height: 13px;
 }
 
 .chat-preview__text {
+  color: $gray-text;
   font-size: 12px;
   line-height: 15px;
-  color: $gray-text;
   margin-top: 4px;
 }
 
 .chat-preview__side-info {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
   gap: 10px;
+  justify-content: space-between;
 }
 
 .chat-preview__time {
+  color: $gray-text;
   font-size: 9px;
   line-height: 13px;
-  color: $gray-text;
 }
 
 .chat-preview__unread {
-  background: $light-blue;
-  display: flex;
   align-items: center;
+  background: $light-blue;
+  border-radius: 50%;
+  display: flex;
+  height: 20px;
   justify-content: center;
   width: 20px;
-  height: 20px;
-  border-radius: 50%;
 }
 
 .chat-preview__unread-number {
+  color: $white;
   font-size: 11px;
   line-height: 12px;
-  color: $white;
 }

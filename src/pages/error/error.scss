@@ -1,20 +1,13 @@
-.error {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.error__error-wrapper {
+.error-wrapper {
   text-align: center;
 }
 
-.error__error-number {
+.error-number {
   font-size: 40px;
   line-height: 40px;
 }
 
-.error__error-text {
+.error-text {
   margin-top: 20px;
   margin-bottom: 70px;
 }

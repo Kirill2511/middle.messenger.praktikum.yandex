@@ -9,7 +9,6 @@
     "build": "parcel build ./src/index.html --dist-dir ./build",
     "start": "node ./server.js"
   },
-  "packageManager": "yarn@3.2.1",
   "devDependencies": {
     "@anikin/parcel-transformer-handlebars": "1.0.9",
     "@anikin/parcel-transformer-handlebars-precompile": "1.0.1",
@@ -46,5 +45,11 @@
     "express": "4.18.1",
     "handlebars": "4.7.7",
     "uuid": "8.3.2"
+  },
+  "browserslist": [
+    "last 2 versions"
+  ],
+  "engines": {
+    "node": ">=12.0.0"
   }
 }

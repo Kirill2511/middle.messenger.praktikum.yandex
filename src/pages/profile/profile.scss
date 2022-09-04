@@ -1,29 +1,29 @@
 @import "../../style/color";
 
 .profile-wrapper {
-  margin-top: 60px;
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  margin-top: 60px;
 }
 
 .profile-avatar {
-  width: 137px;
-  height: 137px;
   background: $light-gray;
   border-radius: 50%;
+  height: 137px;
+  width: 137px;
 }
 
 .profile-name {
-  font-weight: 600;
   font-size: 16px;
+  font-weight: 600;
   line-height: 16px;
   margin-top: 20px;
 }
 
 .profile-data {
-  width: 510px;
   margin-top: 50px;
+  width: 510px;
 }
 
 .profile-data-item {
@@ -36,18 +36,18 @@
 }
 
 .profile-actions {
-  margin-top: 40px;
+  align-items: flex-start;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  margin-top: 40px;
 }
 
 .profile-actions_item {
   font-size: 13px;
   line-height: 13px;
   padding: 10px 0;
-  width: 100%;
   text-align: left;
+  width: 100%;
 }
 
 .profile-actions_item:not(:last-child) {
@@ -56,8 +56,4 @@
 
 .profile-actions_item:last-child {
   color: $red;
-}
-
-.profile-actions_item_blue {
-  color: $light-blue !important;
 }
