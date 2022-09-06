@@ -1,5 +1,5 @@
 import Block from '../../utils/Block';
-import template from './user-info-item.template.hbs';
+import * as template from './user-info-item.template.hbs';
 import * as styles from './user-info-item.scss';
 
 interface IUserInfoItem {

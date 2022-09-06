@@ -1,5 +1,5 @@
 import Block from '../../utils/Block';
-import template from './chat-input.template.hbs';
+import * as template from './chat-input.template.hbs';
 import * as styles from './chat-input.scss';
 
 interface IChatInput {

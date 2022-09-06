@@ -1,8 +1,7 @@
-import template from './auth.template.hbs';
+import * as template from './auth.template.hbs';
 import { Button } from '../../components/button';
 import Block from '../../utils/Block';
 
-import * as styles from './auth.scss';
 import { Input } from '../../components/input';
 import { Link } from '../../components/link';
 import { logFormData } from '../../utils/logFormData';
@@ -11,6 +10,8 @@ import { hideError, isFormValid, Rule, showError, validate } from '../../utils/v
 import { Router } from '../../utils/router/Router';
 import AuthController from '../../utils/controllers/authController';
 import { ILoginData } from '../../types/auth';
+
+import * as styles from './auth.scss';
 
 export class Auth extends Block<any> {
   render() {

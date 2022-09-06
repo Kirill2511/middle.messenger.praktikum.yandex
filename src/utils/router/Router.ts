@@ -19,6 +19,7 @@ export class Router {
 
   constructor(rootQuery: string) {
     if (Router.__instance) {
+      // eslint-disable-next-line no-constructor-return
       return Router.__instance;
     }
 
@@ -46,23 +47,13 @@ export class Router {
 
     if (localStorage.getItem('active') && this._redirectPath.includes(window.location.pathname)) {
       this._onRoute('/messenger');
+      this.history.pushState({}, '', '/messenger');
     }
-  }
-
-  private _onRoute(pathname: string) {
-    const route = this.getRoute(pathname);
-    if (!route) return;
-
-    if (this._currentRoute && this._currentRoute !== route) {
-      this._currentRoute.leave();
-    }
-
-    this._currentRoute = route;
-    route.render();
   }
 
   go(pathname: string) {
     if (localStorage.getItem('active') && this._redirectPath.includes(pathname)) {
+      // eslint-disable-next-line no-param-reassign
       pathname = '/messenger';
     }
     this.history.pushState({}, '', pathname);
@@ -79,5 +70,17 @@ export class Router {
 
   getRoute(pathname: string) {
     return this.routes.find((route) => route.match(pathname));
+  }
+
+  private _onRoute(pathname: string) {
+    const route = this.getRoute(pathname);
+    if (!route) return;
+
+    if (this._currentRoute && this._currentRoute !== route) {
+      this._currentRoute.leave();
+    }
+
+    this._currentRoute = route;
+    route.render();
   }
 }

@@ -1,5 +1,5 @@
 import Block from '../../utils/Block';
-import template from './singup.hbs';
+import * as template from './singup.hbs';
 import { Input } from '../../components/input';
 import { Button } from '../../components/button';
 import { Link } from '../../components/link';

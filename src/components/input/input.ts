@@ -1,5 +1,5 @@
 import Block from '../../utils/Block';
-import template from './input.template.hbs';
+import * as template from './input.template.hbs';
 import * as styles from './input.scss';
 
 interface IInput {

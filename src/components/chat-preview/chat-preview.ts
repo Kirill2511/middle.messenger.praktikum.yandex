@@ -1,5 +1,5 @@
 import Block from '../../utils/Block';
-import template from './chat-preview.template.hbs';
+import * as template from './chat-preview.template.hbs';
 import * as styles from './chat-preview.scss';
 
 interface IChatPreview {
