@@ -1,4 +1,4 @@
-https://github.com/Kirill2511/middle.messenger.praktikum.yandex/pull/5
+https://github.com/Kirill2511/middle.messenger.praktikum.yandex/pull/6
 ___
 
 - Запуск проекта - `yarn start`

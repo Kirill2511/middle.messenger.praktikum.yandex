@@ -1,5 +1,5 @@
 import Block from '../../utils/Block';
-import template from './link.template.hbs';
+import * as template from './link.template.hbs';
 import * as styles from './link.scss';
 
 interface ILink {

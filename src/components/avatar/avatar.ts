@@ -1,5 +1,5 @@
 import Block from '../../utils/Block';
-import template from './avatar.template.hbs';
+import * as template from './avatar.template.hbs';
 
 interface IAvatar {
   link: string;

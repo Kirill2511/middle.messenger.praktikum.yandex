@@ -15,10 +15,15 @@ interface IOptions {
 }
 
 export class HTTPTransport {
-  private _BASE_URL = 'https://ya-praktikum.tech/api/v2';
+  private readonly _BASE_URL: string;
+
+  constructor(baseurl = 'https://ya-praktikum.tech/api/v2') {
+    this._BASE_URL = baseurl;
+  }
 
   get = (url: string, options: IOptions): Promise<XMLHttpRequest> => {
     if (options && options.data) {
+      // eslint-disable-next-line no-param-reassign
       url = `${url}${queryStringify(options.data)}`;
     }
     return this.request(url, { ...options, method: METHODS.GET }, options.timeout);
@@ -51,10 +56,12 @@ export class HTTPTransport {
 
       xhr.withCredentials = true;
 
+      // eslint-disable-next-line func-names
       xhr.onload = function () {
         if (this.status === 200) {
           resolve(xhr);
         } else {
+          // eslint-disable-next-line no-alert
           alert(this.response);
           reject(this.response);
         }

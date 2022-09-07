@@ -1,5 +1,5 @@
 import Block from '../../utils/Block';
-import template from './button.template.hbs';
+import * as template from './button.template.hbs';
 import * as styles from './button.scss';
 
 interface IButton {

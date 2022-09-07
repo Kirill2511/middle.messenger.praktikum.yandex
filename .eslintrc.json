@@ -32,6 +32,13 @@
       {
         "singleQuote": true
       }
-    ]
+    ],
+    "@typescript-eslint/no-explicit-any": "off",
+    "import/prefer-default-export": "off",
+    "array-callback-return": "off",
+    "@typescript-eslint/no-useless-constructor": "off",
+    "@typescript-eslint/no-var-requires": "off",
+    "import/no-extraneous-dependencies": "off",
+    "no-underscore-dangle": "off"
   }
 }

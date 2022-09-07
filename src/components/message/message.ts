@@ -1,5 +1,5 @@
 import Block from '../../utils/Block';
-import template from './message.template.hbs';
+import * as template from './message.template.hbs';
 import * as styles from './message.scss';
 
 interface IMessage {

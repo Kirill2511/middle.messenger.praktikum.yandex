@@ -1,5 +1,5 @@
 import Block from '../../utils/Block';
-import template from './label.template.hbs';
+import * as template from './label.template.hbs';
 import * as styles from './label.scss';
 
 interface ILabel {

@@ -1,5 +1,5 @@
 import Block from '../../utils/Block';
-import template from './chat.template.hbs';
+import * as template from './chat.template.hbs';
 import * as styles from './chat.scss';
 import { Link } from '../../components/link';
 import { ChatPreview } from '../../components/chat-preview';
@@ -11,6 +11,7 @@ import ChatsController from '../../utils/controllers/chatsController';
 import { ChatOptions } from '../../components/chat-options';
 import { Message } from '../../components/message';
 import { IChatInfo, IMessageData } from '../../types/chats';
+import AuthController from '../../utils/controllers/authController';
 
 interface IChat {
   chatsStore: any;
@@ -125,6 +126,10 @@ export class Chat extends Block<IChat> {
   }
 
   protected render(): DocumentFragment {
+    if (localStorage.getItem('active') && !this.props.chatsStore) {
+      ChatsController.getChats();
+      AuthController.getUser();
+    }
     return this.compile(template, { styles });
   }
 }
