@@ -22,15 +22,26 @@ module.exports = merge(common, {
           {
             loader: 'css-loader',
             options: {
-              importLoaders: 2,
+              importLoaders: 1,
               sourceMap: false,
-              modules: {
-                localIdentName: '[name]__[local]__[hash:base64:5]',
-              },
+              modules: false,
             },
           },
           'postcss-loader',
           'sass-loader',
+        ],
+      },
+      {
+        test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'fonts/',
+              esModule: false,
+            },
+          },
         ],
       },
     ],
